@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}E-mails — MedicalSupporte{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>E-mail Log</h1>
+  <p class="muted">Overzicht van verzonden e-mails.</p>
+
+  <div class="stat" style="padding:0;">
+    <table class="table" style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding:12px;">Datum</th>
+          <th style="text-align:left; padding:12px;">Naar</th>
+          <th style="text-align:left; padding:12px;">Onderwerp</th>
+          <th style="text-align:left; padding:12px;">Voorbeeld</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in emails %}
+        <tr style="border-top:1px solid var(--border);">
+          <td style="padding:12px;">{{ m.sent_at.strftime('%Y-%m-%d %H:%M') if m.sent_at else '—' }}</td>
+          <td style="padding:12px;">{{ m.to }}</td>
+          <td style="padding:12px;">{{ m.subject }}</td>
+          <td style="padding:12px;">{{ m.body_preview }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4" style="padding:12px;" class="muted">Nog geen e-mails verzonden.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

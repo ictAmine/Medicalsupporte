@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Afspraken — MedicalSupporte{% endblock %}
+{% block content %}
+{% include "_flash.html" %}
+<section class="container">
+  <h1>Plan uw afspraak</h1>
+  <p class="muted">Kies een datum en tijd, en laat een bericht achter.</p>
+
+  <form method="POST" class="form grid-2" novalidate>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <div class="field {% if errors and errors.get('naam') %}has-error{% endif %}">
+      <label for="naam">Naam <span class="req">*</span></label>
+      <input id="naam" name="naam" type="text" required maxlength="120"
+             value="{{ (formdata.naam if formdata else '') | e }}">
+      {% if errors and errors.get('naam') %}<p class="field-error">{{ errors['naam'] }}</p>{% endif %}
+    </div>
+
+    <div class="field {% if errors and errors.get('email') %}has-error{% endif %}">
+      <label for="email">E-mailadres <span class="req">*</span></label>
+      <input id="email" name="email" type="email" required maxlength="120" inputmode="email" autocomplete="email"
+             value="{{ (formdata.email if formdata else '') | e }}">
+      {% if errors and errors.get('email') %}<p class="field-error">{{ errors['email'] }}</p>{% endif %}
+    </div>
+
+    <div class="field {% if errors and errors.get('datum') %}has-error{% endif %}">
+      <label for="datum">Datum <span class="req">*</span></label>
+      <input id="datum" name="datum" type="date" required
+             value="{{ (formdata.datum if formdata else '') | e }}">
+      {% if errors and errors.get('datum') %}<p class="field-error">{{ errors['datum'] }}</p>{% endif %}
+    </div>
+
+    <div class="field {% if errors and errors.get('tijd') %}has-error{% endif %}">
+      <label for="tijd">Tijd <span class="req">*</span></label>
+      <input id="tijd" name="tijd" type="time" required
+             value="{{ (formdata.tijd if formdata else '') | e }}">
+      {% if errors and errors.get('tijd') %}<p class="field-error">{{ errors['tijd'] }}</p>{% endif %}
+    </div>
+
+    <div class="field full {% if errors and errors.get('opmerkingen') %}has-error{% endif %}">
+      <label for="opmerkingen">Opmerkingen</label>
+      <textarea id="opmerkingen" name="opmerkingen" rows="4" maxlength="2000" placeholder="Vertel ons iets meer...">{{ (formdata.opmerkingen if formdata else '') | e }}</textarea>
+      {% if errors and errors.get('opmerkingen') %}<p class="field-error">{{ errors['opmerkingen'] }}</p>{% endif %}
+    </div>
+
+    <div class="full">
+      <button type="submit" class="ms-btn ms-btn--primary">Bevestigen</button>
+    </div>
+  </form>
+
+  <aside class="tips" style="margin-top: 18px;">
+    <h3>💡 Tip voor uw bezoek</h3>
+    <ul>
+      <li>Neem een geldig identiteitsbewijs mee.</li>
+      <li>Kom 10 minuten eerder.</li>
+      <li>Noteer uw vragen voor de arts.</li>
+    </ul>
+  </aside>
+</section>
+{% endblock %}

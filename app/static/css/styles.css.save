@@ -1,0 +1,66 @@
+^nano app/static/css/styles.css color: var(--color-accent-hover);
+}
+
+header, nav {
+  background-color: var(--color-bg-alt);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+nav a {
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--color-bg-alt);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Botón toggle modo oscuro */
+.toggle-dark {
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-dark:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Modo oscuro activado */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode .container {
+  background-color: var(--dark-bg-alt);
+}
+
+body.dark-mode a {
+  color: var(--dark-accent);
+}
+
+body.dark-mode .toggle-dark {
+  border-color: var(--dark-accent);
+  color: var(--dark-accent);
+}
+
+body.dark-mode .toggle-dark:hover {
+  background-color: var(--dark-accent);
+  color: white;
+}

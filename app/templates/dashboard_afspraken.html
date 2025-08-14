@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Agenda — MedicalSupporte{% endblock %}
+{% block content %}
+<section class="container section">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+    <h1>Agenda</h1>
+    <div style="display:flex;gap:8px">
+      <a class="ms-btn" href="{{ url_for('main.afspraken') }}">Nieuwe afspraak</a>
+      <a class="ms-btn ms-btn--primary" href="{{ url_for('main.export_afspraken_csv') }}">Export CSV</a>
+    </div>
+  </div>
+
+  <div class="card" data-animate="rise">
+    {% if afspraken|length == 0 %}
+      <p class="muted">Nog geen afspraken geregistreerd.</p>
+    {% else %}
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>ID</th><th>Naam</th><th>E-mail</th><th>Datum</th><th>Tijd</th><th>Opmerkingen</th></tr>
+          </thead>
+          <tbody>
+            {% for a in afspraken %}
+              <tr>
+                <td>{{ a.id }}</td>
+                <td>{{ a.klantnaam or a.name }}</td>
+                <td>{{ a.email }}</td>
+                <td>{{ a.datum }}</td>
+                <td>{{ a.tijd }}</td>
+                <td>{{ (a.opmerkingen or a.message)[:120] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

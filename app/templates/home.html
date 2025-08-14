@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Welkom — MedicalSupporte{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <h1>Zorg die meebeweegt met u — snel, vriendelijk en slim</h1>
+        <p class="muted">Plan uw afspraak binnen 60 seconden. Onze AI-assistent helpt u met vragen, voorbereiding en nazorg.</p>
+        <div class="cta-row">
+          {% if current_user.is_authenticated %}
+            <a href="{{ url_for('main.afspraken') }}" class="ms-btn ms-btn--primary">Afspraak maken</a>
+            <a href="{{ url_for('main.dashboard') }}" class="ms-btn">Naar dashboard</a>
+          {% else %}
+            <a href="{{ url_for('main.login') }}" class="ms-btn ms-btn--primary">Inloggen</a>
+            <a href="{{ url_for('main.afspraken') }}" class="ms-btn">Afspraak maken</a>
+          {% endif %}
+        </div>
+        <div class="badges">
+          <span class="badge">AVG-conform</span>
+          <span class="badge">E-mail bevestiging + .ics</span>
+          <span class="badge">Persoonlijke zorg</span>
+        </div>
+      </div>
+      <div>
+        <div class="glass kpi">
+          <p class="muted">Patiënten geholpen</p>
+          <h2 class="count-up" data-target="1250">0</h2>
+          <p class="muted">Sinds 2023</p>
+        </div>
+        <div class="glass promo">
+          <p>“Supersnel gepland en duidelijke informatie. Aanrader!”</p>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <h2>Diensten</h2>
+  <div class="tabs" role="tablist" aria-label="Diensten">
+    <button class="tab active" data-tab="huisarts" role="tab" aria-selected="true">Huisarts</button>
+    <button class="tab" data-tab="fysio" role="tab" aria-selected="false">Fysiotherapie</button>
+    <button class="tab" data-tab="lab" role="tab" aria-selected="false">Lab & Tests</button>
+  </div>
+  <div class="tab-panels">
+    <div class="tab-panel active" id="huisarts" role="tabpanel">
+      <div class="card">
+        <h3>Consult & advies</h3>
+        <p class="muted">Snelle triage, receptverlenging en doorverwijzingen waar nodig.</p>
+      </div>
+    </div>
+    <div class="tab-panel" id="fysio" role="tabpanel">
+      <div class="card">
+        <h3>Herstel op maat</h3>
+        <p class="muted">Behandeling op basis van uw doelen en dagelijks ritme.</p>
+      </div>
+    </div>
+    <div class="tab-panel" id="lab" role="tabpanel">
+      <div class="card">
+        <h3>Betrouwbare resultaten</h3>
+        <p class="muted">Prikken op afspraak, uitslagen vlot en veilig in uw mailbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <h2>Veelgestelde vragen</h2>
+  <div class="accordion">
+    <details>
+      <summary>Hoe snel kan ik terecht?</summary>
+      <div class="acc-body">Meestal binnen 24–48 uur. Spoed? Bel onze balie.</div>
+    </details>
+    <details>
+      <summary>Kan ik mijn afspraak wijzigen?</summary>
+      <div class="acc-body">Ja, via de bevestigingsmail of neem contact op.</div>
+    </details>
+    <details>
+      <summary>Wat neem ik mee?</summary>
+      <div class="acc-body">Een geldig ID en eventuele medicatielijsten.</div>
+    </details>
+  </div>
+</section>
+
+<section class="container section callout">
+  <div class="callout-grid">
+    <div>
+      <h2>Klaar om te beginnen?</h2>
+      <p class="muted">Plan nu uw afspraak. U ontvangt direct een bevestiging met kalender-uitnodiging (.ics).</p>
+    </div>
+    <div class="cta-right">
+      <a href="{{ url_for('main.afspraken') }}" class="ms-btn ms-btn--primary">Plan afspraak</a>
+      {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('main.login') }}" class="ms-btn">Inloggen</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

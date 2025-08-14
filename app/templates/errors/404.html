@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Niet gevonden — MedicalSupporte{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>Pagina niet gevonden (404)</h1>
+  <p class="muted">De pagina die u zoekt bestaat niet of is verplaatst.</p>
+  <p><a class="ms-btn ms-btn--primary" href="{{ url_for('main.home') }}">Terug naar Home</a></p>
+</section>
+{% endblock %}

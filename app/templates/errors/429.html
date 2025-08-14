@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Te veel verzoeken — MedicalSupporte{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>Rustig aan 🙂 (429)</h1>
+  <p class="muted">U heeft te veel verzoeken in korte tijd gedaan. Wacht even en probeer opnieuw.</p>
+  <p><a class="ms-btn" href="{{ url_for('main.home') }}">Terug naar Home</a></p>
+</section>
+{% endblock %}

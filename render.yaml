@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: medicalsupporte
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --workers=3 --threads=2 --timeout=120
+    plan: free
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MAIL_SERVER
+        value: smtp.mijndomein.nl
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USE_TLS
+        value: "true"
+      - key: MAIL_USERNAME
+        # pon aquí tu buzón de MijnDomein
+        value: info@medicalsupporte.com
+      - key: MAIL_PASSWORD
+        sync: false   # lo pones luego a mano en el panel
+      - key: BASE_URL
+        fromService:
+          name: medicalsupporte
+          type: web
+          property: url
+      - key: DATABASE_URL
+        fromDatabase:
+          name: medicalsupporte-db
+          property: connectionString
+
+databases:
+  - name: medicalsupporte-db
+    plan: free

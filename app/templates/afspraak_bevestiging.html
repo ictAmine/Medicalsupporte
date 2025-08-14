@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Bevestiging — MedicalSupporte{% endblock %}
+{% block content %}
+<section class="container narrow">
+  <h1>Afspraak bevestigd ✅</h1>
+  <p class="muted">Bedankt! Hieronder vindt u de details van uw afspraak.</p>
+
+  <div class="stat" style="margin-top:14px;">
+    <p><strong>Naam:</strong> {{ appt.klantnaam or appt.name }}</p>
+    <p><strong>E-mail:</strong> {{ appt.email or '—' }}</p>
+    <p><strong>Datum:</strong> {{ appt.datum or '—' }}</p>
+    <p><strong>Tijd:</strong> {{ appt.tijd or '—' }}</p>
+    <p><strong>Opmerkingen:</strong> {{ appt.opmerkingen or appt.message or '—' }}</p>
+  </div>
+
+  <p style="margin-top:18px;">
+    <a class="ms-btn ms-btn--primary" href="{{ url_for('main.dashboard_afspraken') }}">Naar afsprakenoverzicht</a>
+    <a class="ms-btn" href="{{ url_for('main.home') }}">Terug naar Home</a>
+  </p>
+</section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Chatbot Beheer — MedicalSupporte{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>Chatbot Beheer</h1>
+  <form method="POST" class="form">
+    <label for="vraag">Vraag</label>
+    <input id="vraag" name="question" type="text" placeholder="Bijv. Wat zijn de openingstijden?" required>
+
+    <label for="antwoord">Antwoord</label>
+    <textarea id="antwoord" name="answer" rows="4" placeholder="Typ hier het antwoord..." required></textarea>
+
+    <button type="submit" class="btn btn-primary">Opslaan</button>
+  </form>
+
+  <h2>Bestaande antwoorden</h2>
+  <ul class="list">
+    {% for r in responses %}
+      <li><strong>{{ r.question }}</strong> — {{ r.answer }}</li>
+    {% else %}
+      <li class="muted">Nog geen antwoorden.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

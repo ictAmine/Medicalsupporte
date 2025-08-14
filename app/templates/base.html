@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="nl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}MedicalSupporte{% endblock %}</title>
+
+  <!-- Fuente y estilos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- 👇 ESTE ES EL ENLACE CRÍTICO AL CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <meta name="color-scheme" content="dark light">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a class="brand" href="{{ url_for('main.home') }}">
+        <span class="dot"></span> <span>MedicalSupporte</span>
+      </a>
+      <ul>
+        <li><a class="{{ 'active' if request.endpoint == 'main.home' else '' }}" href="{{ url_for('main.home') }}">Home</a></li>
+
+        {% if current_user.is_authenticated %}
+          <li><a class="{{ 'active' if request.endpoint == 'main.dashboard' else '' }}" href="{{ url_for('main.dashboard') }}">Dashboard</a></li>
+          <li><a class="{{ 'active' if request.endpoint and request.endpoint.startswith('main.afspraken') else '' }}" href="{{ url_for('main.afspraken') }}">Afspraken</a></li>
+          <li><a class="{{ 'active' if request.endpoint == 'main.panel' else '' }}" href="{{ url_for('main.panel') }}">Panel</a></li>
+          <li><a class="{{ 'active' if request.endpoint == 'main.emails' else '' }}" href="{{ url_for('main.emails') }}">E-mails</a></li>
+          <li><a class="ms-btn" href="{{ url_for('main.logout') }}">Uitloggen</a></li>
+        {% else %}
+          <li><a class="{{ 'active' if request.endpoint == 'main.login' else '' }}" href="{{ url_for('main.login') }}">Inloggen</a></li>
+        {% endif %}
+
+        <li>
+          <button id="themeToggle" class="ms-btn ms-btn--ghost" aria-label="Thema wisselen">🌗</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="muted">© {{ 2025 }} MedicalSupporte — KVK geregistreerd · <a href="#" class="link">Privacy</a> · <a href="#" class="link">AVG</a></p>
+    </div>
+  </footer>
+
+  <!-- 👇 Y ESTE ES EL JS GLOBAL -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

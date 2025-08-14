@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-mailgeschiedenis - MedicalSupporte</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">MedicalSupporte</div>
+        <ul>
+            <li><a href="{{ url_for('routes.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('routes.emails') }}" class="active">E-mails</a></li>
+            <li><a href="{{ url_for('routes.logout') }}">Uitloggen</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <h1>Verzonden E-mails</h1>
+    <table class="email-table">
+        <thead>
+            <tr>
+                <th>Ontvanger</th>
+                <th>Onderwerp</th>
+                <th>Datum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>patiënt1@example.com</td>
+                <td>Bevestiging afspraak</td>
+                <td>2025-08-06</td>
+            </tr>
+            <tr>
+                <td>patiënt2@example.com</td>
+                <td>Herinnering afspraak</td>
+                <td>2025-08-05</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p>&copy; {{ 2025 }} MedicalSupporte</p>
+</footer>
+</body>
+</html>

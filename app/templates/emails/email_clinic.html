@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <body style="font-family:Arial,Helvetica,sans-serif; color:#111; line-height:1.5;">
+    <h2 style="margin:0 0 10px;">Nieuwe afspraak ontvangen</h2>
+    <table role="presentation" cellpadding="6" cellspacing="0" style="border:1px solid #e5e7eb; border-radius:8px;">
+      <tr><td><strong>Naam</strong></td><td>{{ naam }}</td></tr>
+      <tr><td><strong>E-mail</strong></td><td>{{ email }}</td></tr>
+      <tr><td><strong>Datum</strong></td><td>{{ datum }}</td></tr>
+      <tr><td><strong>Tijd</strong></td><td>{{ tijd }}</td></tr>
+      <tr><td><strong>Opmerkingen</strong></td><td>{{ opmerkingen or '—' }}</td></tr>
+    </table>
+    {% if bevestiging_url %}
+    <p style="margin-top:14px;"><a href="{{ bevestiging_url }}">Bevestigingspagina</a></p>
+    {% endif %}
+    <p>— MedicalSupporte</p>
+  </body>
+</html>

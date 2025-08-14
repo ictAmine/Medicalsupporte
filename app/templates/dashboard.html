@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — MedicalSupporte{% endblock %}
+{% block content %}
+
+<section class="container" data-animate="rise">
+  <div class="dash-head">
+    <h1>Welkom, {{ current_user.name or 'Gebruiker' }}</h1>
+    <div class="dash-actions">
+      <a href="{{ url_for('main.afspraken') }}" class="ms-btn">Nieuwe Afspraak</a>
+      <a href="{{ url_for('main.emails') }}" class="ms-btn ms-btn--ghost">E-mails</a>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpis-minimal grid">
+    <div class="kpi-tile">
+      <h3>Patiënten geholpen</h3>
+      <p class="kpi-number">{{ patients_helped or 0 }}</p>
+    </div>
+    <div class="kpi-tile">
+      <h3>Afgesproken vandaag</h3>
+      <p class="kpi-number">{{ appointments_today or 0 }}</p>
+    </div>
+    <div class="kpi-tile">
+      <h3>E-mails verzonden</h3>
+      <p class="kpi-number">{{ emails_sent or 0 }}</p>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <section class="quick" style="margin-top:2rem;">
+    <h2>Snelle acties</h2>
+    <div class="grid">
+      <a href="{{ url_for('main.afspraken') }}" class="q-card">
+        📅 Plan afspraak
+      </a>
+      <a href="{{ url_for('main.panel') }}" class="q-card">
+        ⚙️ Instellingen
+      </a>
+      <a href="{{ url_for('main.emails') }}" class="q-card">
+        ✉️ Bekijk e-mails
+      </a>
+    </div>
+  </section>
+
+  <!-- Laatste Activiteit -->
+  <section style="margin-top:2rem;">
+    <div class="list-head">
+      <h2>Laatst bijgewerkt</h2>
+      <a href="#" class="link">Alles bekijken</a>
+    </div>
+    <div class="last-list">
+      {% for item in recent_activity %}
+        <div class="last-item">
+          <div class="li-main">
+            <strong>{{ item.title }}</strong>
+            <span class="muted">{{ item.date }}</span>
+          </div>
+          <div class="li-side">
+            {{ item.status }}
+          </div>
+        </div>
+      {% else %}
+        <p class="muted">Geen recente activiteit.</p>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+
+{% endblock %}
