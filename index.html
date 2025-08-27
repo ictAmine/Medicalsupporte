@@ -10,7 +10,7 @@
 <body>
   <div id="loader" class="loader" aria-hidden="true"></div>
 
-  <header>
+  <header id="siteHeader">
     <nav>
       <img src="images/logo.png" alt="MedicalSupporte logo" class="logo"/>
 
@@ -18,10 +18,10 @@
         <li><a href="#home" data-i18n="nav.home">Home</a></li>
         <li><a href="#diensten" data-i18n="nav.services">Diensten</a></li>
         <li><a href="#prijzen" data-i18n="nav.pricing">Prijzen</a></li>
+        <li><a href="#why" data-i18n="nav.why">Waarom wij</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
 
-      <!-- Selector de idioma -->
       <div class="lang-switch" role="group" aria-label="Language selector">
         <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
         <button class="lang-btn" data-lang="es">ES</button>
@@ -34,63 +34,120 @@
 
   <main id="app" class="fade-in">
     <!-- Hero -->
-    <section id="home" class="hero">
+    <section id="home" class="hero reveal">
       <h1 data-i18n="hero.title">MedicalSupporte</h1>
       <p data-i18n="hero.subtitle">Digitale oplossingen voor privéklinieken en ZZP’ers in Nederland.</p>
       <a href="#contact" class="cta" data-i18n="hero.cta">Vraag een offerte aan</a>
     </section>
 
-    <!-- Servicios -->
-    <section id="diensten" class="section">
+    <!-- Diensten -->
+    <section id="diensten" class="section reveal">
       <h2 data-i18n="services.title">Onze Diensten</h2>
       <div class="cards">
-        <div class="card">
+        <div class="card hoverlift">
           <h3 data-i18n="services.web.title">Websites</h3>
           <p data-i18n="services.web.desc">Professionele websites die vertrouwen uitstralen.</p>
         </div>
-        <div class="card">
+        <div class="card hoverlift">
           <h3 data-i18n="services.chat.title">Chatbots</h3>
           <p data-i18n="services.chat.desc">Automatische assistenten die afspraken en vragen afhandelen.</p>
         </div>
-        <div class="card">
+        <div class="card hoverlift">
           <h3 data-i18n="services.mail.title">E-mail Automatisatie</h3>
           <p data-i18n="services.mail.desc">Directe bevestigingen en follow-ups voor uw patiënten.</p>
         </div>
       </div>
     </section>
 
-    <!-- Precios -->
-    <section id="prijzen" class="section pricing">
+    <!-- Prijzen -->
+    <section id="prijzen" class="section pricing reveal">
       <h2 data-i18n="pricing.title">Prijzen</h2>
       <div class="cards">
-        <div class="card">
+        <div class="card tag-eco hoverlift">
+          <div class="tag" data-i18n="pricing.tag.bestvalue">Beste keuze</div>
           <h3 data-i18n="pricing.basic.title">Basic</h3>
-          <p data-i18n="pricing.basic.price">€99</p>
+          <p class="price" data-i18n="pricing.basic.price">€99</p>
           <p data-i18n="pricing.basic.desc">1-pagina website</p>
         </div>
-        <div class="card">
+        <div class="card hoverlift">
           <h3 data-i18n="pricing.pro.title">Pro</h3>
-          <p data-i18n="pricing.pro.price">€199</p>
+          <p class="price" data-i18n="pricing.pro.price">€199</p>
           <p data-i18n="pricing.pro.desc">Website + chatbot</p>
         </div>
-        <div class="card">
+        <div class="card hoverlift">
           <h3 data-i18n="pricing.premium.title">Premium</h3>
-          <p data-i18n="pricing.premium.price">€299</p>
+          <p class="price" data-i18n="pricing.premium.price">€299</p>
           <p data-i18n="pricing.premium.desc">Alles-in-één digitale oplossing</p>
         </div>
       </div>
     </section>
 
-    <!-- Contacto → Netlify Forms con redirección a thank-you.html -->
-    <section id="contact" class="section contact">
+    <!-- Por qué elegirnos -->
+    <section id="why" class="section reveal">
+      <h2 data-i18n="why.title">Waarom kiezen voor MedicalSupporte?</h2>
+      <div class="cards">
+        <div class="card hoverlift">
+          <h3 data-i18n="why.fast.title">Snel en licht</h3>
+          <p data-i18n="why.fast.desc">Webs ultrasnelle, optimizadas para móvil y SEO.</p>
+        </div>
+        <div class="card hoverlift">
+          <h3 data-i18n="why.i18n.title">5 talen + RTL</h3>
+          <p data-i18n="why.i18n.desc">NL/ES/EN/FR/AR con soporte de derecha a izquierda.</p>
+        </div>
+        <div class="card hoverlift">
+          <h3 data-i18n="why.forms.title">Formulieren que convierten</h3>
+          <p data-i18n="why.forms.desc">Netlify Forms con antispam y redirección limpia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonials" class="section testimonials reveal">
+      <h2 data-i18n="testi.title">Testimonios</h2>
+      <div class="testi-viewport">
+        <div class="testi-track" id="testiTrack">
+          <blockquote class="testimonial">
+            <p data-i18n="testi.1.text">“Nuestra clínica recibió más citas la primera semana.”</p>
+            <cite data-i18n="testi.1.author">— Clínica Privada Delft</cite>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p data-i18n="testi.2.text">“Chatbot en 3 idiomas y emails automáticos, simple y efectivo.”</p>
+            <cite data-i18n="testi.2.author">— Fisioterapia Gouda</cite>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p data-i18n="testi.3.text">“Rápidos, claros y con diseño que inspira confianza.”</p>
+            <cite data-i18n="testi.3.author">— Tandarts Rotterdam</cite>
+          </blockquote>
+        </div>
+      </div>
+      <div class="testi-dots" id="testiDots" aria-label="testimonial navigation"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section faq reveal">
+      <h2 data-i18n="faq.title">Preguntas frecuentes</h2>
+      <details>
+        <summary data-i18n="faq.1.q">¿Cuánto tardan?</summary>
+        <p data-i18n="faq.1.a">Landing básica en 48–72h tras recibir el contenido.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.2.q">¿Puedo empezar en un idioma y luego añadir más?</summary>
+        <p data-i18n="faq.2.a">Sí. El sistema está listo para añadir idiomas sin rehacer la web.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.3.q">¿Funciona el formulario sin servidor?</summary>
+        <p data-i18n="faq.3.a">Sí. Netlify Forms procesa envíos y te llegan por email/panel.</p>
+      </details>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="section contact reveal">
       <h2 data-i18n="contact.title">Contacteer ons</h2>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
-        <!-- Campos ocultos para Netlify -->
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" id="contactForm">
         <input type="hidden" name="form-name" value="contact">
         <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
-        <!-- Idioma y meta -->
         <input type="hidden" name="language" id="langField" value="nl">
         <input type="hidden" name="page_url" id="pageUrlField" value="">
 
@@ -98,7 +155,8 @@
         <input type="email" name="email" data-i18n-placeholder="contact.form.email" placeholder="Uw e-mail" required>
         <textarea name="message" data-i18n-placeholder="contact.form.message" placeholder="Uw bericht" required></textarea>
 
-        <button type="submit" id="submitBtn" data-i18n="contact.form.send">Verstuur</button>
+        <button type="submit" id="submitBtn" class="btn-gradient" data-i18n="contact.form.send">Verstuur</button>
+        <div id="formAlert" class="alert" aria-live="polite"></div>
       </form>
     </section>
   </main>
@@ -106,6 +164,8 @@
   <footer>
     <p data-i18n="footer.copy">© 2025 MedicalSupporte. Alle rechten voorbehouden.</p>
   </footer>
+
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
   <script src="js/script.js"></script>
 </body>
