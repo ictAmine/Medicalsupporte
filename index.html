@@ -1,152 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8Y0HWXG2MN');
-</script>
-  <title>MedicalSupporte - IT Solutions for starters, IA Bissnes</title>
-  <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- FontAwesome para iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- AOS Animaciones -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title data-i18n="site.title">MedicalSupporte</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <meta name="description" content="Digital solutions for clinics & freelancers | Oplossingen voor privéklinieken en ZZP’ers">
 </head>
 <body>
-<header class="navbar">
-  <nav>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#chatbots">Chatbots</a></li>
-      <li><a href="#emails">Emails</a></li>
-      <li><a href="#appointments">Appointments</a></li>
-    </ul>
-  </nav>
-</header>
+  <div id="loader" class="loader" aria-hidden="true"></div>
 
-  <div class="hero">
-    <h1>Welcome to <span>MedicalSupporte</span></h1>
-    <p>Automated solutions for private clinics, dentists & health experts.</p>
-    <a href="#services" class="btn">Discover Services</a>
-  </div>
+  <header>
+    <nav>
+      <img src="images/logo.png" alt="MedicalSupporte logo" class="logo"/>
 
-<section id="services">
-  <h2>Our Smart IT Solutions</h2>
-  <ul>
-    <li><a href="#emails">📧 Automated Email Systems</a></li>
-    <li><a href="#appointments">📅 Online Booking & Scheduling</a></li>
-    <li><a href="#ai">🤖 AI-Enhanced Tools for Clinics</a></li>
-  </ul>
-</section>
+      <ul class="nav-links">
+        <li><a href="#home" data-i18n="nav.home">Home</a></li>
+        <li><a href="#diensten" data-i18n="nav.services">Diensten</a></li>
+        <li><a href="#prijzen" data-i18n="nav.pricing">Prijzen</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
 
-<!-- Chatbots Section -->
-<section id="chatbots" class="service-section">
-  <h3>🤖 Intelligent Chatbots</h3>
-  <p>
-    We design multilingual AI chatbots to assist clinics, dentists, and private healthcare providers.
-    They can answer FAQs, collect patient information, and even help book appointments — 24/7.
-  </p>
-</section>
+      <!-- Selector de idioma -->
+      <div class="lang-switch" role="group" aria-label="Language selector">
+        <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ar" dir="rtl">AR</button>
+      </div>
+    </nav>
+  </header>
 
-<!-- Emails Section -->
-<section id="emails" class="service-section">
-  <h3>📧 Automated Emails</h3>
-  <p>
-    Save time by automating patient reminders, confirmations, follow-ups, and newsletters.
-    Our system integrates with Gmail, Outlook, or your custom server with full language support.
-  </p>
-</section>
+  <main id="app" class="fade-in">
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <h1 data-i18n="hero.title">MedicalSupporte</h1>
+      <p data-i18n="hero.subtitle">Digitale oplossingen voor privéklinieken en ZZP’ers in Nederland.</p>
+      <a href="#contact" class="cta" data-i18n="hero.cta">Vraag een offerte aan</a>
+    </section>
 
-<!-- Appointments Section -->
-<section id="appointments" class="service-section">
-  <h3>📅 Appointment Systems</h3>
-  <p>
-    Let your patients schedule or cancel appointments online, directly from your website or chatbot.
-    Fully customizable and integrated with your team’s availability in real-time.
-  </p>
-</section>
-<section id="pricing" class="pricing-section" data-aos="zoom-in">
-  <h2>Flexible Pricing for Smart Clinics</h2>
-  <div class="cards-container">
-    <div class="card">
-      <h3>Starter</h3>
-      <p>⚙️ Basic IT setup</p>
-      <p>🤖 1 AI-integrated tool</p>
-      <p>🌐 Support in 2 languages</p>
-      <p class="price">€49/month</p>
-      <a href="#contact" class="btn">Choose Plan</a>
-    </div>
-    <div class="card popular">
-      <h3>Growth</h3>
-      <p>📈 Custom IT automation</p>
-      <p>🧠 Smart AI integration</p>
-      <p>🌐 Multilingual support (up to 5 languages)</p>
-      <p class="price">€89/month</p>
-      <a href="#contact" class="btn">Choose Plan</a>
-    </div>
-    <div class="card">
-      <h3>Pro Clinic</h3>
-      <p>💼 Full IT transformation</p>
-      <p>🔐 Secure AI-backed tools</p>
-      <p>🌐 Advanced multilingual & analytics</p>
-      <p class="price">€149/month</p>
-      <a href="#contact" class="btn">Choose Plan</a>
-    </div>
-  </div>
-</section>
+    <!-- Servicios -->
+    <section id="diensten" class="section">
+      <h2 data-i18n="services.title">Onze Diensten</h2>
+      <div class="cards">
+        <div class="card">
+          <h3 data-i18n="services.web.title">Websites</h3>
+          <p data-i18n="services.web.desc">Professionele websites die vertrouwen uitstralen.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="services.chat.title">Chatbots</h3>
+          <p data-i18n="services.chat.desc">Automatische assistenten die afspraken en vragen afhandelen.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="services.mail.title">E-mail Automatisatie</h3>
+          <p data-i18n="services.mail.desc">Directe bevestigingen en follow-ups voor uw patiënten.</p>
+        </div>
+      </div>
+    </section>
 
-<section class="image-showcase" data-aos="fade-up">
-  <h2>Real People. Real AI. Real Care.</h2>
-  <p>Empowering clinics, dentists and physiotherapists with intelligent, multilingual and modern IT solutions.</p>
-  <img src="images/team-ai-medical.png" alt="Doctors working with AI tools in a modern clinic" />
-</section>
+    <!-- Precios -->
+    <section id="prijzen" class="section pricing">
+      <h2 data-i18n="pricing.title">Prijzen</h2>
+      <div class="cards">
+        <div class="card">
+          <h3 data-i18n="pricing.basic.title">Basic</h3>
+          <p data-i18n="pricing.basic.price">€99</p>
+          <p data-i18n="pricing.basic.desc">1-pagina website</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="pricing.pro.title">Pro</h3>
+          <p data-i18n="pricing.pro.price">€199</p>
+          <p data-i18n="pricing.pro.desc">Website + chatbot</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="pricing.premium.title">Premium</h3>
+          <p data-i18n="pricing.premium.price">€299</p>
+          <p data-i18n="pricing.premium.desc">Alles-in-één digitale oplossing</p>
+        </div>
+      </div>
+    </section>
 
-<section id="contact" class="contact-section" data-aos="fade-up">
-  <h2>Contact Us</h2>
-  <form action="https://formspree.io/f/meogabqk" method="POST" class="contact-form">
-    <input type="hidden" name="_next" value="thank-you.html">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="_replyto" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
+    <!-- Contacto → Netlify Forms con redirección a thank-you.html -->
+    <section id="contact" class="section contact">
+      <h2 data-i18n="contact.title">Contacteer ons</h2>
 
-    <!-- Anti-spam honeypot -->
-    <input type="text" name="_gotcha" style="display:none">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <!-- Campos ocultos para Netlify -->
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
-    <!-- Optional: redirect after submission -->
-    <!-- <input type="hidden" name="_next" value="https://medicalsupporte.com/thank-you.html"> -->
+        <!-- Idioma y meta -->
+        <input type="hidden" name="language" id="langField" value="nl">
+        <input type="hidden" name="page_url" id="pageUrlField" value="">
 
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-</section>
+        <input type="text" name="name" data-i18n-placeholder="contact.form.name" placeholder="Uw naam" required>
+        <input type="email" name="email" data-i18n-placeholder="contact.form.email" placeholder="Uw e-mail" required>
+        <textarea name="message" data-i18n-placeholder="contact.form.message" placeholder="Uw bericht" required></textarea>
+
+        <button type="submit" id="submitBtn" data-i18n="contact.form.send">Verstuur</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 MedicalSupporte. All rights reserved.</p>
+    <p data-i18n="footer.copy">© 2025 MedicalSupporte. Alle rechten voorbehouden.</p>
   </footer>
 
-  <script src="js/app.js"></script>
-<!-- Script de AOS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-
+  <script src="js/script.js"></script>
 </body>
 </html>
