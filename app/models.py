@@ -1,70 +1,60 @@
-from app import db
+from datetime import datetime
 from flask_login import UserMixin
-from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalchemy.sql import func
+from app import db, login_manager
 
+# ---------- MODELOS ----------
 
-# ----------------------------
-# Usuario (para login)
-# ----------------------------
-class User(UserMixin, db.Model):
-    __tablename__ = "user"
+class Clinic(db.Model, UserMixin):
+    __tablename__ = "clinic"
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(150), unique=True, nullable=False, index=True)
-    password_hash = db.Column(db.String(300), nullable=False)
+    name = db.Column(db.String(120))
+    email = db.Column(db.String(200), unique=True, nullable=False, index=True)
+    password = db.Column(db.String(300), nullable=False)
 
-    chatbot_responses = db.relationship("ChatbotResponse", backref="owner", lazy=True)
+    # relaciones
+    chatbot_responses = db.relationship("ChatbotResponse", backref="clinic", lazy=True)
+    emails = db.relationship("EmailLog", backref="clinic", lazy=True)
 
-    def set_password(self, raw_password: str):
-        self.password_hash = generate_password_hash(raw_password)
-
-    def check_password(self, raw_password: str) -> bool:
-        return check_password_hash(self.password_hash, raw_password)
-
-
-# ----------------------------
-# Citas (campos flexibles NL + legacy)
-# ----------------------------
-class Appointment(db.Model):
-    __tablename__ = "appointment"
-
-    id = db.Column(db.Integer, primary_key=True)
-
-    # Esquema "nuevo" (NL)
-    klantnaam = db.Column(db.String(120), nullable=True)
-    datum = db.Column(db.String(50), nullable=True)   # YYYY-MM-DD
-    tijd = db.Column(db.String(50), nullable=True)    # HH:MM
-    opmerkingen = db.Column(db.Text, nullable=True)
-
-    # Esquema "antiguo" (compatibilidad)
-    name = db.Column(db.String(120), nullable=True)
-    email = db.Column(db.String(120), nullable=True)
-    phone = db.Column(db.String(50), nullable=True)
-    message = db.Column(db.Text, nullable=True)
+    def get_id(self):
+        return str(self.id)
 
 
-# ----------------------------
-# Respuestas del chatbot
-# ----------------------------
 class ChatbotResponse(db.Model):
     __tablename__ = "chatbot_response"
 
     id = db.Column(db.Integer, primary_key=True)
-    question = db.Column(db.String(255), nullable=False)
-    answer = db.Column(db.Text, nullable=False)
+    question = db.Column(db.String(300))
+    answer = db.Column(db.String(1000))
+    clinic_id = db.Column(db.Integer, db.ForeignKey("clinic.id"), nullable=False)
 
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
+
+class Appointment(db.Model):
+    __tablename__ = "appointment"
+
+    id = db.Column(db.Integer, primary_key=True)
+    klantnaam = db.Column(db.String(160))  # nombre del paciente
+    email = db.Column(db.String(200))
+    datum = db.Column(db.String(20))       # YYYY-MM-DD
+    tijd = db.Column(db.String(10))        # HH:MM
+    opmerkingen = db.Column(db.Text)       # mensaje / notas
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-# ----------------------------
-# Log de e-mails enviados
-# ----------------------------
 class EmailLog(db.Model):
     __tablename__ = "email_log"
 
     id = db.Column(db.Integer, primary_key=True)
-    to = db.Column(db.String(255), nullable=False)
-    subject = db.Column(db.String(255), nullable=False)
-    body_preview = db.Column(db.String(300), nullable=True)
-    sent_at = db.Column(db.DateTime(timezone=True), server_default=func.now(), nullable=False)
+    clinic_id = db.Column(db.Integer, db.ForeignKey("clinic.id"), nullable=True)
+    to_email = db.Column(db.String(200))
+    subject = db.Column(db.String(200))
+    status = db.Column(db.String(50))  # sent/failed
+    error = db.Column(db.Text, nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+# ---------- Flask-Login ----------
+
+@login_manager.user_loader
+def load_user(user_id: str):
+    return Clinic.query.get(int(user_id))
