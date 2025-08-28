@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title data-i18n="pricing.metaTitle">Prijzen — MedicalSupporte</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <div id="loader" class="loader" aria-hidden="true"></div>
+
+  <header id="siteHeader">
+    <nav>
+      <a href="index.html"><img src="images/logo.svg" alt="MedicalSupporte logo" class="logo"/></a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Diensten</a></li>
+        <li><a href="pricing.html" class="active" data-i18n="nav.pricing">Prijzen</a></li>
+        <li><a href="why.html" data-i18n="nav.why">Waarom wij</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selector">
+        <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ar" dir="rtl">AR</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="app" class="fade-in">
+    <section class="hero hero-slim reveal">
+      <h1 data-i18n="pricing.title">Prijzen</h1>
+      <p data-i18n="pricing.subtitle">Transparencia desde el principio.</p>
+    </section>
+
+    <section class="section pricing reveal">
+      <div class="cards">
+        <div class="card">
+          <h3 data-i18n="pricing.basic.title">Basic</h3>
+          <p class="price" data-i18n="pricing.basic.price">€99</p>
+          <ul class="check-list">
+            <li data-i18n="pricing.basic.li1">1-página</li>
+            <li data-i18n="pricing.basic.li2">Responsive</li>
+            <li data-i18n="pricing.basic.li3">Implementación rápida</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 data-i18n="pricing.pro.title">Pro</h3>
+          <p class="price" data-i18n="pricing.pro.price">€199</p>
+          <ul class="check-list">
+            <li data-i18n="pricing.pro.li1">Web + chatbot</li>
+            <li data-i18n="pricing.pro.li2">3 idiomas</li>
+            <li data-i18n="pricing.pro.li3">Email automático</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 data-i18n="pricing.premium.title">Premium</h3>
+          <p class="price" data-i18n="pricing.premium.price">€299</p>
+          <ul class="check-list">
+            <li data-i18n="pricing.premium.li1">Todo-en-uno</li>
+            <li data-i18n="pricing.premium.li2">5 idiomas + RTL</li>
+            <li data-i18n="pricing.premium.li3">Soporte priorizado</li>
+          </ul>
+        </div>
+      </div>
+      <p class="center" style="margin-top:22px">
+        <a href="contact.html" class="btn-gradient" data-i18n="cta.toContact">Quiero una propuesta</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2025 MedicalSupporte. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <div id="floatingCTA" class="floating-cta">
+    <span data-i18n="cta.float.text">¿Listo para más pacientes?</span>
+    <a href="contact.html" class="btn-small" data-i18n="cta.float.btn">Solicitar oferta</a>
+  </div>
+
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

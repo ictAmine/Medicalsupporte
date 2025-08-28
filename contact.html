@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title data-i18n="contact.metaTitle">Contact — MedicalSupporte</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <div id="loader" class="loader" aria-hidden="true"></div>
+
+  <header id="siteHeader">
+    <nav>
+      <a href="index.html"><img src="images/logo.svg" alt="MedicalSupporte logo" class="logo"/></a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Diensten</a></li>
+        <li><a href="pricing.html" data-i18n="nav.pricing">Prijzen</a></li>
+        <li><a href="why.html" data-i18n="nav.why">Waarom wij</a></li>
+        <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selector">
+        <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ar" dir="rtl">AR</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="app" class="fade-in">
+    <section class="hero hero-slim reveal">
+      <h1 data-i18n="contact.title">Contacteer ons</h1>
+      <p data-i18n="contact.subtitle">Cuéntanos tu caso. Respondemos rápido.</p>
+    </section>
+
+    <section class="section contact reveal">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" id="contactForm">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+        <input type="hidden" name="language" id="langField" value="nl">
+        <input type="hidden" name="page_url" id="pageUrlField" value="">
+
+        <input type="text" name="name" data-i18n-placeholder="contact.form.name" placeholder="Uw naam" required>
+        <input type="email" name="email" data-i18n-placeholder="contact.form.email" placeholder="Uw e-mail" required>
+        <textarea name="message" data-i18n-placeholder="contact.form.message" placeholder="Uw bericht" required></textarea>
+
+        <button type="submit" id="submitBtn" class="btn-gradient" data-i18n="contact.form.send">Verstuur</button>
+        <div id="formAlert" class="alert" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2025 MedicalSupporte. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <div id="floatingCTA" class="floating-cta">
+    <span data-i18n="cta.float.text">¿Listo para más pacientes?</span>
+    <a href="contact.html" class="btn-small" data-i18n="cta.float.btn">Solicitar oferta</a>
+  </div>
+
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

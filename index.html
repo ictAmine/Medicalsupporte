@@ -12,16 +12,14 @@
 
   <header id="siteHeader">
     <nav>
-      <img src="images/logo.png" alt="MedicalSupporte logo" class="logo"/>
-
+      <a href="index.html"><img src="images/logo.svg" alt="MedicalSupporte logo" class="logo"/></a>
       <ul class="nav-links">
-        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-        <li><a href="#diensten" data-i18n="nav.services">Diensten</a></li>
-        <li><a href="#prijzen" data-i18n="nav.pricing">Prijzen</a></li>
-        <li><a href="#why" data-i18n="nav.why">Waarom wij</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Diensten</a></li>
+        <li><a href="pricing.html" data-i18n="nav.pricing">Prijzen</a></li>
+        <li><a href="why.html" data-i18n="nav.why">Waarom wij</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       </ul>
-
       <div class="lang-switch" role="group" aria-label="Language selector">
         <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
         <button class="lang-btn" data-lang="es">ES</button>
@@ -37,68 +35,72 @@
     <section id="home" class="hero reveal">
       <h1 data-i18n="hero.title">MedicalSupporte</h1>
       <p data-i18n="hero.subtitle">Digitale oplossingen voor privéklinieken en ZZP’ers in Nederland.</p>
-      <a href="#contact" class="cta" data-i18n="hero.cta">Vraag een offerte aan</a>
+      <a href="contact.html" class="cta" data-i18n="hero.cta">Vraag een offerte aan</a>
     </section>
 
-    <!-- Diensten -->
-    <section id="diensten" class="section reveal">
+    <!-- Diensten resumen -->
+    <section class="section reveal">
       <h2 data-i18n="services.title">Onze Diensten</h2>
       <div class="cards">
         <div class="card hoverlift">
           <h3 data-i18n="services.web.title">Websites</h3>
           <p data-i18n="services.web.desc">Professionele websites die vertrouwen uitstralen.</p>
+          <p class="center" style="margin-top:8px"><a href="services.html" class="btn-small" data-i18n="nav.services">Diensten</a></p>
         </div>
         <div class="card hoverlift">
           <h3 data-i18n="services.chat.title">Chatbots</h3>
           <p data-i18n="services.chat.desc">Automatische assistenten die afspraken en vragen afhandelen.</p>
+          <p class="center" style="margin-top:8px"><a href="services.html" class="btn-small" data-i18n="nav.services">Diensten</a></p>
         </div>
         <div class="card hoverlift">
           <h3 data-i18n="services.mail.title">E-mail Automatisatie</h3>
           <p data-i18n="services.mail.desc">Directe bevestigingen en follow-ups voor uw patiënten.</p>
+          <p class="center" style="margin-top:8px"><a href="services.html" class="btn-small" data-i18n="nav.services">Diensten</a></p>
         </div>
       </div>
     </section>
 
-    <!-- Prijzen -->
-    <section id="prijzen" class="section pricing reveal">
+    <!-- Prijzen resumen -->
+    <section class="section pricing reveal">
       <h2 data-i18n="pricing.title">Prijzen</h2>
       <div class="cards">
-        <div class="card tag-eco hoverlift">
-          <div class="tag" data-i18n="pricing.tag.bestvalue">Beste keuze</div>
+        <div class="card">
           <h3 data-i18n="pricing.basic.title">Basic</h3>
           <p class="price" data-i18n="pricing.basic.price">€99</p>
           <p data-i18n="pricing.basic.desc">1-pagina website</p>
         </div>
-        <div class="card hoverlift">
+        <div class="card">
           <h3 data-i18n="pricing.pro.title">Pro</h3>
           <p class="price" data-i18n="pricing.pro.price">€199</p>
           <p data-i18n="pricing.pro.desc">Website + chatbot</p>
         </div>
-        <div class="card hoverlift">
+        <div class="card">
           <h3 data-i18n="pricing.premium.title">Premium</h3>
           <p class="price" data-i18n="pricing.premium.price">€299</p>
           <p data-i18n="pricing.premium.desc">Alles-in-één digitale oplossing</p>
         </div>
       </div>
+      <p class="center" style="margin-top:12px"><a href="pricing.html" class="btn-gradient" data-i18n="nav.pricing">Prijzen</a></p>
     </section>
 
-    <!-- Por qué elegirnos -->
-    <section id="why" class="section reveal">
+    <!-- Waarom wij (link a página dedicada) -->
+    <section class="section reveal">
       <h2 data-i18n="why.title">Waarom kiezen voor MedicalSupporte?</h2>
       <div class="cards">
         <div class="card hoverlift">
           <h3 data-i18n="why.fast.title">Snel en licht</h3>
-          <p data-i18n="why.fast.desc">Webs ultrasnelle, optimizadas para móvil y SEO.</p>
+          <p data-i18n="why.fast.desc">Supersnelle sites, geoptimaliseerd voor mobiel en SEO.</p>
         </div>
         <div class="card hoverlift">
           <h3 data-i18n="why.i18n.title">5 talen + RTL</h3>
-          <p data-i18n="why.i18n.desc">NL/ES/EN/FR/AR con soporte de derecha a izquierda.</p>
+          <p data-i18n="why.i18n.desc">NL/ES/EN/FR/AR met rechts-naar-links ondersteuning.</p>
         </div>
         <div class="card hoverlift">
-          <h3 data-i18n="why.forms.title">Formulieren que convierten</h3>
-          <p data-i18n="why.forms.desc">Netlify Forms con antispam y redirección limpia.</p>
+          <h3 data-i18n="why.forms.title">Formulieren die converteren</h3>
+          <p data-i18n="why.forms.desc">Netlify Forms met antispam en nette redirect.</p>
         </div>
       </div>
+      <p class="center" style="margin-top:12px"><a href="why.html" class="btn-gradient" data-i18n="nav.why">Waarom wij</a></p>
     </section>
 
     <!-- Testimonios -->
@@ -139,31 +141,17 @@
         <p data-i18n="faq.3.a">Sí. Netlify Forms procesa envíos y te llegan por email/panel.</p>
       </details>
     </section>
-
-    <!-- Contacto -->
-    <section id="contact" class="section contact reveal">
-      <h2 data-i18n="contact.title">Contacteer ons</h2>
-
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" id="contactForm">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
-
-        <input type="hidden" name="language" id="langField" value="nl">
-        <input type="hidden" name="page_url" id="pageUrlField" value="">
-
-        <input type="text" name="name" data-i18n-placeholder="contact.form.name" placeholder="Uw naam" required>
-        <input type="email" name="email" data-i18n-placeholder="contact.form.email" placeholder="Uw e-mail" required>
-        <textarea name="message" data-i18n-placeholder="contact.form.message" placeholder="Uw bericht" required></textarea>
-
-        <button type="submit" id="submitBtn" class="btn-gradient" data-i18n="contact.form.send">Verstuur</button>
-        <div id="formAlert" class="alert" aria-live="polite"></div>
-      </form>
-    </section>
   </main>
 
   <footer>
     <p data-i18n="footer.copy">© 2025 MedicalSupporte. Alle rechten voorbehouden.</p>
   </footer>
+
+  <!-- Barra flotante (i18n) -->
+  <div id="floatingCTA" class="floating-cta">
+    <span data-i18n="cta.float.text">¿Listo para más pacientes?</span>
+    <a href="contact.html" class="btn-small" data-i18n="cta.float.btn">Solicitar oferta</a>
+  </div>
 
   <button id="backToTop" aria-label="Back to top">↑</button>
 
